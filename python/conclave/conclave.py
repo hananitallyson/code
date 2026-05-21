@@ -104,13 +104,14 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
             elif menu_option == 3:
-                subprocess.run("clear")
-                print("---------- UPDATE PLAYER ----------")
-
                 yes = ""
                 player_index = ""
                 while yes != "Y":
-                    player_index = int(input("SELECT THE PLAYER BY NUMBER (e.g. 1): "))
+                    subprocess.run("clear")
+                    print("---------- UPDATE PLAYER ----------")
+                    player_index = (
+                        int(input("SELECT THE PLAYER BY NUMBER (e.g. 1): ")) - 1
+                    )
                     print(f"\nYOU CHOOSE {database['players'][player_index]['name']}")
                     yes = input("CONTINUE? (Y/N): ").upper()
 
@@ -128,6 +129,29 @@ if __name__ == "__main__":
                     json.dump(database, db, indent=4, ensure_ascii=False)
 
                 print("\nPlayer updated successfully!")
+
+                input("\nPress ENTER to continue...")
+            elif menu_option == 4:
+                yes = ""
+                player_index = ""
+                while yes != "Y":
+                    subprocess.run("clear")
+                    print("---------- DELETE PLAYER ----------")
+                    player_index = (
+                        int(input("SELECT THE PLAYER BY NUMBER (e.g. 1): ")) - 1
+                    )
+                    print(f"\nYOU CHOOSE {database['players'][player_index]['name']}")
+                    yes = input("CONTINUE? (Y/N): ").upper()
+
+                subprocess.run("clear")
+                print("---------- DELETE PLAYER ----------")
+
+                database["players"].pop(player_index)
+
+                with open("db.json", "w", encoding="utf-8") as db:
+                    json.dump(database, db, indent=4, ensure_ascii=False)
+
+                print("\nPlayer deleted successfully!")
 
                 input("\nPress ENTER to continue...")
 
