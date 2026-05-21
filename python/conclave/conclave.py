@@ -323,6 +323,9 @@ if __name__ == "__main__":
                     print(
                         f"GAMEMASTER: {database['parties'][party_index]['gamemaster']}"
                     )
+
+                    print(f"GAME: {database['parties'][party_index]['game']}")
+
                     print(
                         f"NUMBER OF PLAYERS: {database['parties'][party_index]['number_of_players']}"
                     )
@@ -331,8 +334,6 @@ if __name__ == "__main__":
 
                     for player in database["parties"][party_index]["players"]:
                         print(f"- {player}")
-
-                    print(f"GAME: {database['parties'][party_index]['game']}")
 
                 else:
                     print("\nParty not found!")
