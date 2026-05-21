@@ -16,48 +16,60 @@ def save_database():
 
 def main_menu():
     clear()
+
     print("---------- CONCLAVE MENU ----------")
     print("(1) PLAYERS")
     print("(2) GAMEMASTERS")
     print("(3) PARTIES")
     print("(0) EXIT")
+
     option = input("\n *  Choose your option: ")
+
     return int(option)
 
 
 def player_menu():
     clear()
+
     print("---------- PLAYERS ----------")
     print("(1) NEW PLAYER")
     print("(2) FIND PLAYER")
     print("(3) UPDATE PLAYER")
     print("(4) DELETE PLAYER")
     print("(0) EXIT")
+
     option = input("\n *  Choose your option: ")
+
     return int(option)
 
 
 def gm_menu():
     clear()
+
     print("---------- GAMEMASTERS ----------")
     print("(1) NEW GAMEMASTER")
     print("(2) FIND GAMEMASTER")
     print("(3) UPDATE GAMEMASTER")
     print("(4) DELETE GAMEMASTER")
     print("(0) EXIT")
+
     option = input("\n *  Choose your option: ")
+
     return int(option)
 
 
 def party_menu():
     clear()
+
     print("---------- PARTIES ----------")
     print("(1) NEW PARTY")
     print("(2) FIND PARTY")
     print("(3) UPDATE PARTY")
     print("(4) DELETE PARTY")
     print("(0) EXIT")
+
     option = input("\n *  Choose your option: ")
+
     return int(option)
 
 
@@ -67,12 +79,16 @@ if __name__ == "__main__":
     while option != 0:
         option = main_menu()
 
+        # PLAYERS
         if option == 1:
             menu_option = player_menu()
 
+            # CREATE PLAYER
             if menu_option == 1:
                 clear()
+
                 print("---------- CREATE PLAYER ----------")
+
                 name = input("NAME: ")
                 email = input("EMAIL: ")
                 phone = input("PHONE NUMBER: ")
@@ -87,9 +103,12 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
 
+            # FIND PLAYER
             elif menu_option == 2:
                 clear()
+
                 print("---------- FIND PLAYER ----------")
+
                 name = input("SEARCH BY NAME: ")
 
                 player_list_size = len(database["players"])
@@ -104,21 +123,26 @@ if __name__ == "__main__":
 
                 if find:
                     clear()
+
                     print("---------- FIND PLAYER ----------")
+
                     print(f"NAME: {database['players'][position]['name']}")
                     print(f"EMAIL: {database['players'][position]['email']}")
                     print(f"PHONE NUMBER: {database['players'][position]['phone']}")
+
                 else:
                     print("\nPlayer not found!")
 
                 input("\nPress ENTER to continue...")
 
+            # UPDATE PLAYER
             elif menu_option == 3:
                 yes = ""
                 player_index = ""
 
                 while yes != "Y":
                     clear()
+
                     print("---------- UPDATE PLAYER ----------")
 
                     player_index = (
@@ -126,9 +150,11 @@ if __name__ == "__main__":
                     )
 
                     print(f"\nYOU CHOOSE {database['players'][player_index]['name']}")
+
                     yes = input("CONTINUE? (Y/N): ").upper()
 
                 clear()
+
                 print("---------- UPDATE PLAYER ----------")
 
                 name = input("NAME: ")
@@ -145,12 +171,14 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
 
+            # DELETE PLAYER
             elif menu_option == 4:
                 yes = ""
                 player_index = ""
 
                 while yes != "Y":
                     clear()
+
                     print("---------- DELETE PLAYER ----------")
 
                     player_index = (
@@ -158,9 +186,11 @@ if __name__ == "__main__":
                     )
 
                     print(f"\nYOU CHOOSE {database['players'][player_index]['name']}")
+
                     yes = input("CONTINUE? (Y/N): ").upper()
 
                 clear()
+
                 print("---------- DELETE PLAYER ----------")
 
                 database["players"].pop(player_index)
@@ -171,11 +201,14 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
 
+        # GAMEMASTERS
         elif option == 2:
             menu_option = gm_menu()
 
+            # CREATE GAMEMASTER
             if menu_option == 1:
                 clear()
+
                 print("---------- CREATE GAMEMASTER ----------")
 
                 name = input("NAME: ")
@@ -192,8 +225,10 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
 
+            # FIND GAMEMASTER
             elif menu_option == 2:
                 clear()
+
                 print("---------- FIND GAMEMASTER ----------")
 
                 name = input("SEARCH BY NAME: ")
@@ -210,21 +245,28 @@ if __name__ == "__main__":
 
                 if find:
                     clear()
+
                     print("---------- FIND GAMEMASTER ----------")
+
                     print(f"NAME: {database['gamemasters'][position]['name']}")
+
                     print(f"EMAIL: {database['gamemasters'][position]['email']}")
+
                     print(f"PHONE NUMBER: {database['gamemasters'][position]['phone']}")
+
                 else:
                     print("\nGamemaster not found!")
 
                 input("\nPress ENTER to continue...")
 
+            # UPDATE GAMEMASTER
             elif menu_option == 3:
                 yes = ""
                 gm_index = ""
 
                 while yes != "Y":
                     clear()
+
                     print("---------- UPDATE GAMEMASTER ----------")
 
                     gm_index = (
@@ -236,6 +278,7 @@ if __name__ == "__main__":
                     yes = input("CONTINUE? (Y/N): ").upper()
 
                 clear()
+
                 print("---------- UPDATE GAMEMASTER ----------")
 
                 name = input("NAME: ")
@@ -252,12 +295,14 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
 
+            # DELETE GAMEMASTER
             elif menu_option == 4:
                 yes = ""
                 gm_index = ""
 
                 while yes != "Y":
                     clear()
+
                     print("---------- DELETE GAMEMASTER ----------")
 
                     gm_index = (
@@ -269,6 +314,7 @@ if __name__ == "__main__":
                     yes = input("CONTINUE? (Y/N): ").upper()
 
                 clear()
+
                 print("---------- DELETE GAMEMASTER ----------")
 
                 database["gamemasters"].pop(gm_index)
@@ -279,20 +325,29 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
 
+        # PARTIES
         elif option == 3:
             menu_option = party_menu()
 
+            # CREATE PARTY
             if menu_option == 1:
                 clear()
+
                 print("---------- CREATE PARTY ----------")
+
                 gamemaster_id = int(input("GAMEMASTER ID (e.g. 1): ")) - 1
+
                 players = input("PLAYERS IDs (e.g. 1 3 5): ").split(" ")
+
                 number_of_players = len(players)
+
                 game = input("GAMERULES: ")
 
                 player_names = []
+
                 for player_id in players:
                     index = int(player_id) - 1
+
                     player_names.append(database["players"][index]["name"])
 
                 database["parties"].append(
@@ -310,24 +365,29 @@ if __name__ == "__main__":
 
                 input("\nPress ENTER to continue...")
 
+            # FIND PARTY
             elif menu_option == 2:
                 clear()
+
                 print("---------- FIND PARTY ----------")
 
                 party_index = int(input("SEARCH BY PARTY NUMBER: ")) - 1
 
                 if 0 <= party_index < len(database["parties"]):
                     clear()
+
                     print("---------- FIND PARTY ----------")
 
                     print(
-                        f"GAMEMASTER: {database['parties'][party_index]['gamemaster']}"
+                        f"GAMEMASTER: "
+                        f"{database['parties'][party_index]['gamemaster']}"
                     )
 
-                    print(f"GAME: {database['parties'][party_index]['game']}")
+                    print(f"GAME: " f"{database['parties'][party_index]['game']}")
 
                     print(
-                        f"NUMBER OF PLAYERS: {database['parties'][party_index]['number_of_players']}"
+                        f"NUMBER OF PLAYERS: "
+                        f"{database['parties'][party_index]['number_of_players']}"
                     )
 
                     print("PLAYERS:")
@@ -337,6 +397,91 @@ if __name__ == "__main__":
 
                 else:
                     print("\nParty not found!")
+
+                input("\nPress ENTER to continue...")
+
+            # UPDATE PARTY
+            elif menu_option == 3:
+                yes = ""
+                party_index = ""
+
+                while yes != "Y":
+                    clear()
+
+                    print("---------- UPDATE PARTY ----------")
+
+                    party_index = int(input("SELECT PARTY NUMBER (e.g. 1): ")) - 1
+
+                    print(
+                        f"\nYOU CHOOSE " f"{database['parties'][party_index]['game']}"
+                    )
+
+                    yes = input("CONTINUE? (Y/N): ").upper()
+
+                clear()
+
+                print("---------- UPDATE PARTY ----------")
+
+                gamemaster_id = int(input("GAMEMASTER ID (e.g. 1): ")) - 1
+
+                players = input("PLAYERS IDs (e.g. 1 3 5): ").split(" ")
+
+                number_of_players = len(players)
+
+                game = input("GAMERULES: ")
+
+                player_names = []
+
+                for player_id in players:
+                    index = int(player_id) - 1
+
+                    player_names.append(database["players"][index]["name"])
+
+                database["parties"][party_index]["gamemaster"] = database[
+                    "gamemasters"
+                ][gamemaster_id]["name"]
+
+                database["parties"][party_index][
+                    "number_of_players"
+                ] = number_of_players
+
+                database["parties"][party_index]["players"] = player_names
+
+                database["parties"][party_index]["game"] = game
+
+                save_database()
+
+                print("\nParty updated successfully!")
+
+                input("\nPress ENTER to continue...")
+
+            # DELETE PARTY
+            elif menu_option == 4:
+                yes = ""
+                party_index = ""
+
+                while yes != "Y":
+                    clear()
+
+                    print("---------- DELETE PARTY ----------")
+
+                    party_index = (
+                        int(input("SELECT THE PARTY BY NUMBER (e.g. 1): ")) - 1
+                    )
+
+                    print(f"\nYOU CHOOSE " f"{database['parties'][party_index]}")
+
+                    yes = input("CONTINUE? (Y/N): ").upper()
+
+                clear()
+
+                print("---------- DELETE PARTY ----------")
+
+                database["parties"].pop(party_index)
+
+                save_database()
+
+                print("\nParty deleted successfully!")
 
                 input("\nPress ENTER to continue...")
 
