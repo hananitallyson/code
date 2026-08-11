@@ -1,3 +1,9 @@
-# CODE | Compilação de Exercícios de Desenvolvimento
+# DCT1101 - Algorithms & Programming Logic
 
-Este repositório reúne códigos, exercícios, e projetos desenvolvidos durante as disciplinas do curso de **Bacharelado em Sistemas de Informação (BSI)** da **UFRN - Campus Caicó**.
+Repository containing my exercises and practical activities related to the **Algorithms & Programming Logic** course.
+
+## Contents
+
+* Programming exercises
+* Algorithm implementations
+* Logic and problem-solving activities
